@@ -129,7 +129,7 @@ module.exports = router;
  *                                  type: string
  *                      password:
  *                                  type: string
- *        description: login credentials for access token
+ *        description: Unique AccessToken of every user is required
  *      responses:
  *        '200':
  *          description: A successfull response
@@ -147,7 +147,7 @@ module.exports = router;
  *  /assignment/admin/deletePost/{admin_id}/{blog_id}:
  *    delete:
  *      summary: Used to delete post by admin
- *      description: Admin can delete any post by the post id
+ *      description: Admin can delete any post by the blog id
  *      parameters:
  *      - in: path
  *        name: admin_id
@@ -205,7 +205,7 @@ module.exports = router;
  *  /assignment/post/getPost/{user_id}/{blog_id}:
  *    get:
  *      summary: Used to get any particular post by user
- *      description: User can get any particular blog posts created by him only
+ *      description: User can get any particular blog posts created by him only using blog_id
  *      parameters:
  *      - in: path
  *        name: user_id
@@ -247,11 +247,9 @@ module.exports = router;
  *      - in: query
  *        name: title
  *        type: string
- *        description: Id of an user is required
  *      - in: query
  *        name: author
  *        type: string
- *        description: Id of an user is required
  *      - in: header
  *        name: accessToken
  *        required: true
@@ -296,7 +294,6 @@ module.exports = router;
  *                                  type: string
  *                      content:
  *                                  type: string
- *        description: details fto create a new blog post
  *      responses:
  *        '200':
  *          description: A successfull response
@@ -338,7 +335,7 @@ module.exports = router;
  *                                  type: string
  *                      blog_id:
  *                                  type: integer
- *        description: details to update an existing blog post
+ *        description: Details to update an existing blog post
  *      responses:
  *        '200':
  *          description: A successfull response
@@ -349,22 +346,18 @@ module.exports = router;
  */
 
 
-
-
-
-
 /**
  *  @swagger
  *  /assignment/post/deletePost/{user_id}}:
  *    delete:
- *      summary: Used to delete post by admin
- *      description: Admin can delete any post by the post id
+ *      summary: Used to delete post by user
+ *      description: User can delete any post by the blog id
  *      parameters:
  *      - in: path
  *        name: user_id
  *        required: true
  *        type: string
- *        description: Id of an admin is required
+ *        description: Id of an user is required
  *      - in: body
  *        name: body
  *        required: true
